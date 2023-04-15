@@ -1,0 +1,444 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="out_numeroDemanda" Type="OutArgument(x:String)" />
+    <x:Property Name="inOut_SolicCriadoPor" Type="InOutArgument(x:String)" />
+    <x:Property Name="inOut_SolicGerencia" Type="InOutArgument(x:String)" />
+    <x:Property Name="inOut_SolictDataCriacao" Type="InOutArgument(x:String)" />
+    <x:Property Name="inOut_SolicCapturaDeTela" Type="InOutArgument(ui:Image)" />
+    <x:Property Name="inOut_DesenvNomeDoDesenvolvedor" Type="InOutArgument(x:String)" />
+    <x:Property Name="inOut_DesenvGerencia" Type="InOutArgument(x:String)" />
+    <x:Property Name="inOut_DesenvDataInicio" Type="InOutArgument(x:String)" />
+    <x:Property Name="inOut_DesenvDataLiberadoParaTestes" Type="InOutArgument(x:String)" />
+    <x:Property Name="inOut_DesenvDataTermino" Type="InOutArgument(x:String)" />
+    <x:Property Name="inOut_DesenvCapturaDeTela" Type="InOutArgument(ui:Image)" />
+    <x:Property Name="inOut_TestesNomeDoQA" Type="InOutArgument(x:String)" />
+    <x:Property Name="inOut_TestesNomeGerencia" Type="InOutArgument(x:String)" />
+    <x:Property Name="inOut_TestesDataInicio" Type="InOutArgument(x:String)" />
+    <x:Property Name="inOut_TestesDataTermino" Type="InOutArgument(x:String)" />
+    <x:Property Name="inOut_TestesDataLiberacao" Type="InOutArgument(x:String)" />
+    <x:Property Name="inOut_TestesCapturaDeTela" Type="InOutArgument(ui:Image)" />
+    <x:Property Name="inOut_HomologNomeDoHomologador" Type="InOutArgument(x:String)" />
+    <x:Property Name="inOut_HomologGerencia" Type="InOutArgument(x:String)" />
+    <x:Property Name="inOut_HomologDataHomologado" Type="InOutArgument(x:String)" />
+    <x:Property Name="inOut_HomologAceitoPor" Type="InOutArgument(x:String)" />
+    <x:Property Name="inOut_HomologDataDeAceitacao" Type="InOutArgument(x:String)" />
+    <x:Property Name="inOut_HomologCapturaDeTela" Type="InOutArgument(ui:Image)" />
+    <x:Property Name="inOut_ProdVersao" Type="InOutArgument(x:String)" />
+    <x:Property Name="inOut_ProdNomeResponsavel" Type="InOutArgument(x:String)" />
+    <x:Property Name="inOut_ProdGerencia" Type="InOutArgument(x:String)" />
+    <x:Property Name="inOut_ProdDataEmProducao" Type="InOutArgument(x:String)" />
+    <x:Property Name="inOut_ProdCapturaDeTela" Type="InOutArgument(ui:Image)" />
+    <x:Property Name="out_imgTelaSolicitante" Type="OutArgument(x:String)" />
+    <x:Property Name="out_imgTelaDesenvolvimento" Type="OutArgument(x:String)" />
+    <x:Property Name="out_imgTelaTestes" Type="OutArgument(x:String)" />
+    <x:Property Name="out_imgTelaHomologacao" Type="OutArgument(x:String)" />
+    <x:Property Name="out_imgTelaProducao" Type="OutArgument(x:String)" />
+    <x:Property Name="in_navegador" Type="InArgument(ui:Browser)" />
+  </x:Members>
+  <this:Main.in_navegador>
+    <InArgument x:TypeArguments="ui:Browser" />
+  </this:Main.in_navegador>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1240,2183</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="496,2118" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="_varCaminhoPrincipal" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Assign DisplayName="Definição da variável do caminho" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[_varCaminhoPrincipal]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">C:\UiPath\Auditoria\</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:MultipleAssign DisplayName="Definição das variáveis dos nomes das imagens" sap:VirtualizedContainerService.HintSize="434,225" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[out_imgTelaSolicitante]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">\telaSolicitante.png</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[out_imgTelaDesenvolvimento]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">\telaDesenvolvimento.png</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[out_imgTelaTestes]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">\telaTestes.png</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[out_imgTelaHomologacao]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">\telaHomologacao.png</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[out_imgTelaProducao]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">\telaProducao.png</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
+    <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Solicitar ao usuário o número da demanda" sap:VirtualizedContainerService.HintSize="434,239" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Informe o número da demanda que você deseja" Title="Informe">
+      <ui:InputDialog.Result>
+        <OutArgument x:TypeArguments="x:String">[out_numeroDemanda]</OutArgument>
+      </ui:InputDialog.Result>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InputDialog>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SiteTelaDeLogin.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="SiteTelaDeLogin.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <OutArgument x:TypeArguments="ui:Browser" x:Key="out_navegador">
+          <VisualBasicReference x:TypeArguments="ui:Browser" ExpressionText="in_navegador" />
+        </OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SiteTelaListaDeDemandas.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="SiteTelaListaDeDemandas.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_numeroDemanda">[out_numeroDemanda]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SiteDemandasSolicitante.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="SiteDemandasSolicitante.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_SolicCriadoPor">[inOut_SolicCriadoPor]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_SolicGerencia">[inOut_SolicGerencia]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_SolictDataCriacao">[inOut_SolictDataCriacao]</OutArgument>
+        <OutArgument x:TypeArguments="ui:Image" x:Key="out_SolicCapturaDeTela">[inOut_SolicCapturaDeTela]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SiteDemandasDesenvolvimento.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="SiteDemandasDesenvolvimento.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_DesenvNomeDoDesenvolvedor">[inOut_DesenvNomeDoDesenvolvedor]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_DesenvGerencia">[inOut_DesenvGerencia]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_DesenvDataInicio">[inOut_DesenvDataInicio]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_DesenvDataLiberadoParaTestes">[inOut_DesenvDataLiberadoParaTestes]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_DesenvDataTermino">[inOut_DesenvDataTermino]</OutArgument>
+        <OutArgument x:TypeArguments="ui:Image" x:Key="out_DesenvCapturaDeTela">[inOut_DesenvCapturaDeTela]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SiteDemandasTestes.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="SiteDemandasTestes.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_TestesNomeDoQA">[inOut_TestesNomeDoQA]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_TestesNomeGerencia">[inOut_TestesNomeGerencia]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_TestesDataInicio">[inOut_TestesDataInicio]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_TestesDataTermino">[inOut_TestesDataTermino]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_TestesDataLiberacao">[inOut_TestesDataLiberacao]</OutArgument>
+        <OutArgument x:TypeArguments="ui:Image" x:Key="out_TestesCapturaDeTela">[inOut_TestesCapturaDeTela]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SiteDemandasHomologacao.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="SiteDemandasHomologacao.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_HomologNomeDoHomologador">[inOut_HomologNomeDoHomologador]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_HomologGerencia">[inOut_HomologGerencia]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_HomologDataHomologado">[inOut_HomologDataHomologado]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_HomologAceitoPor">[inOut_HomologAceitoPor]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_HomologDataDeAceitacao">[inOut_HomologDataDeAceitacao]</OutArgument>
+        <OutArgument x:TypeArguments="ui:Image" x:Key="out_HomologCapturaDeTela">[inOut_HomologCapturaDeTela]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SiteDemandasProducao.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="SiteDemandasProducao.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_ProdVersao">[inOut_ProdVersao]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_ProdNomeResponsavel">[inOut_ProdNomeResponsavel]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_ProdGerencia">[inOut_ProdGerencia]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_ProdDataEmProducao">[inOut_ProdDataEmProducao]</OutArgument>
+        <OutArgument x:TypeArguments="ui:Image" x:Key="out_ProdCapturaDeTela">[inOut_ProdCapturaDeTela]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeWorkflowFile>
+    <ui:CloseTab Browser="[in_navegador]" DisplayName="Close Tab" sap:VirtualizedContainerService.HintSize="434,25" sap2010:WorkflowViewState.IdRef="CloseTab_1" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="PastaSalvarImagens.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="PastaSalvarImagens.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_numeroDemanda">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="out_numeroDemanda" />
+        </InArgument>
+        <InArgument x:TypeArguments="ui:Image" x:Key="in_SolicCapturaDeTela">
+          <VisualBasicValue x:TypeArguments="ui:Image" ExpressionText="inOut_SolicCapturaDeTela" />
+        </InArgument>
+        <InArgument x:TypeArguments="ui:Image" x:Key="in_DesenvCapturaDeTela">
+          <VisualBasicValue x:TypeArguments="ui:Image" ExpressionText="inOut_DesenvCapturaDeTela" />
+        </InArgument>
+        <InArgument x:TypeArguments="ui:Image" x:Key="in_TestesCapturaDeTela">
+          <VisualBasicValue x:TypeArguments="ui:Image" ExpressionText="inOut_TestesCapturaDeTela" />
+        </InArgument>
+        <InArgument x:TypeArguments="ui:Image" x:Key="in_HomologCapturaDeTela">
+          <VisualBasicValue x:TypeArguments="ui:Image" ExpressionText="inOut_HomologCapturaDeTela" />
+        </InArgument>
+        <InArgument x:TypeArguments="ui:Image" x:Key="in_ProdCapturaDeTela">
+          <VisualBasicValue x:TypeArguments="ui:Image" ExpressionText="inOut_ProdCapturaDeTela" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_CaminhoPrincipal">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="_varCaminhoPrincipal" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_imgTelaSolicitante">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="out_imgTelaSolicitante" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_imgTelaDesenvolvimento">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="out_imgTelaDesenvolvimento" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_imgTelaTestes">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="out_imgTelaTestes" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_imgTelaHomologacao">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="out_imgTelaHomologacao" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_imgTelaProducao">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="out_imgTelaProducao" />
+        </InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="AplicativoAuditor.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="AplicativoAuditor.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="ui:Image" x:Key="in_DesenvCapturaDeTela">
+          <VisualBasicValue x:TypeArguments="ui:Image" ExpressionText="inOut_DesenvCapturaDeTela" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_DesenvDataInicio">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="inOut_DesenvDataInicio" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_DesenvDataLiberadoParaTestes">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="inOut_DesenvDataLiberadoParaTestes" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_DesenvDataTermino">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="inOut_DesenvDataTermino" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_DesenvGerencia">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="inOut_DesenvGerencia" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_DesenvNomeDoDesenvolvedor">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="inOut_DesenvNomeDoDesenvolvedor" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_HomologAceitoPor">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="inOut_HomologAceitoPor" />
+        </InArgument>
+        <InArgument x:TypeArguments="ui:Image" x:Key="in_HomologCapturaDeTela">
+          <VisualBasicValue x:TypeArguments="ui:Image" ExpressionText="inOut_HomologCapturaDeTela" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_HomologDataDeAceitacao">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="inOut_HomologDataDeAceitacao" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_HomologDataHomologado">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="inOut_HomologDataHomologado" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_HomologGerencia">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="inOut_HomologGerencia" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_HomologNomeDoHomologador">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="inOut_HomologNomeDoHomologador" />
+        </InArgument>
+        <InArgument x:TypeArguments="ui:Image" x:Key="in_ProdCapturaDeTela">
+          <VisualBasicValue x:TypeArguments="ui:Image" ExpressionText="inOut_ProdCapturaDeTela" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_ProdDataEmProducao">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="inOut_ProdDataEmProducao" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_ProdGerencia">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="inOut_ProdGerencia" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_ProdNomeResponsavel">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="inOut_ProdNomeResponsavel" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_ProdVersao">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="inOut_ProdVersao" />
+        </InArgument>
+        <InArgument x:TypeArguments="ui:Image" x:Key="in_SolicCapturaDeTela">
+          <VisualBasicValue x:TypeArguments="ui:Image" ExpressionText="inOut_SolicCapturaDeTela" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_SolicCriadoPor">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="inOut_SolicCriadoPor" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_SolicGerencia">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="inOut_SolicGerencia" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_SolictDataCriacao">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="inOut_SolictDataCriacao" />
+        </InArgument>
+        <InArgument x:TypeArguments="ui:Image" x:Key="in_TestesCapturaDeTela">
+          <VisualBasicValue x:TypeArguments="ui:Image" ExpressionText="inOut_TestesCapturaDeTela" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_TestesDataInicio">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="inOut_TestesDataInicio" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_TestesDataLiberacao">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="inOut_TestesDataLiberacao" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_TestesDataTermino">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="inOut_TestesDataTermino" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_TestesNomeDoQA">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="inOut_TestesNomeDoQA" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_TestesNomeGerencia">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="inOut_TestesNomeGerencia" />
+        </InArgument>
+        <InOutArgument x:TypeArguments="x:String" x:Key="inOut_CaminhoPrincipal">
+          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="_varCaminhoPrincipal" />
+        </InOutArgument>
+        <InOutArgument x:TypeArguments="x:String" x:Key="inOut_imgTelaSolicitante">
+          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_imgTelaSolicitante" />
+        </InOutArgument>
+        <InOutArgument x:TypeArguments="x:String" x:Key="inOut_imgTelaDesenvolvimento">
+          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_imgTelaDesenvolvimento" />
+        </InOutArgument>
+        <InOutArgument x:TypeArguments="x:String" x:Key="inOut_imgTelaTestes">
+          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="Out_imgTelaTestes" />
+        </InOutArgument>
+        <InOutArgument x:TypeArguments="x:String" x:Key="inOut_imgTelaHomologacao">
+          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="Out_imgTelaHomologacao" />
+        </InOutArgument>
+        <InOutArgument x:TypeArguments="x:String" x:Key="inOut_imgTelaProducao">
+          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="Out_imgTelaProducao" />
+        </InOutArgument>
+        <InOutArgument x:TypeArguments="x:String" x:Key="inOut_numeroDemanda">
+          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="Out_numeroDemanda" />
+        </InOutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+  </Sequence>
+</Activity>

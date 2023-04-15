@@ -1,0 +1,228 @@
+{
+  "Workflows": [
+    {
+      "Path": null,
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Main.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "_varCaminhoPrincipal&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_navegador",
+        "out_imgTelaProducao",
+        "out_imgTelaHomologacao",
+        "out_imgTelaTestes",
+        "out_imgTelaDesenvolvimento",
+        "out_imgTelaSolicitante",
+        "inOut_ProdCapturaDeTela",
+        "inOut_ProdDataEmProducao",
+        "inOut_ProdGerencia",
+        "inOut_ProdNomeResponsavel",
+        "inOut_ProdVersao",
+        "inOut_HomologCapturaDeTela",
+        "inOut_HomologDataDeAceitacao",
+        "inOut_HomologAceitoPor",
+        "inOut_HomologDataHomologado",
+        "inOut_HomologGerencia",
+        "inOut_HomologNomeDoHomologador",
+        "inOut_TestesCapturaDeTela",
+        "inOut_TestesDataLiberacao",
+        "inOut_TestesDataTermino",
+        "inOut_TestesDataInicio",
+        "inOut_TestesNomeGerencia",
+        "inOut_TestesNomeDoQA",
+        "inOut_DesenvCapturaDeTela",
+        "inOut_DesenvDataTermino",
+        "inOut_DesenvDataLiberadoParaTestes",
+        "inOut_DesenvDataInicio",
+        "inOut_DesenvGerencia",
+        "inOut_DesenvNomeDoDesenvolvedor",
+        "inOut_SolicCapturaDeTela",
+        "inOut_SolictDataCriacao",
+        "inOut_SolicGerencia",
+        "inOut_SolicCriadoPor",
+        "out_numeroDemanda"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "SiteTelaDeLogin.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "SENHA&Sequence_1",
+        "USUARIO&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "out_navegador"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "SiteTelaListaDeDemandas.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_numeroDemanda"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "SiteDemandasSolicitante.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "out_SolicCapturaDeTela",
+        "out_SolictDataCriacao",
+        "out_SolicGerencia",
+        "out_SolicCriadoPor"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "SiteDemandasDesenvolvimento.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "out_DesenvCapturaDeTela",
+        "out_DesenvDataTermino",
+        "out_DesenvDataLiberadoParaTestes",
+        "out_DesenvDataInicio",
+        "out_DesenvGerencia",
+        "out_DesenvNomeDoDesenvolvedor"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "SiteDemandasTestes.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "out_TestesCapturaDeTela",
+        "out_TestesDataLiberacao",
+        "out_TestesDataTermino",
+        "out_TestesDataInicio",
+        "out_TestesNomeGerencia",
+        "out_TestesNomeDoQA"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "SiteDemandasHomologacao.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "out_HomologCapturaDeTela",
+        "out_HomologDataDeAceitacao",
+        "out_HomologAceitoPor",
+        "out_HomologDataHomologado",
+        "out_HomologGerencia",
+        "out_HomologNomeDoHomologador"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "SiteDemandasProducao.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "out_ProdCapturaDeTela",
+        "out_ProdDataEmProducao",
+        "out_ProdGerencia",
+        "out_ProdNomeResponsavel",
+        "out_ProdVersao"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "PastaSalvarImagens.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_imgTelaProducao",
+        "in_imgTelaHomologacao",
+        "in_imgTelaTestes",
+        "in_imgTelaDesenvolvimento",
+        "in_imgTelaSolicitante",
+        "in_CaminhoPrincipal",
+        "in_ProdCapturaDeTela",
+        "in_HomologCapturaDeTela",
+        "in_TestesCapturaDeTela",
+        "in_DesenvCapturaDeTela",
+        "in_SolicCapturaDeTela",
+        "in_numeroDemanda"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "AplicativoAuditor.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "inOut_numeroDemanda",
+        "inOut_imgTelaProducao",
+        "inOut_imgTelaHomologacao",
+        "inOut_imgTelaTestes",
+        "inOut_imgTelaDesenvolvimento",
+        "inOut_imgTelaSolicitante",
+        "inOut_CaminhoPrincipal",
+        "in_TestesNomeGerencia",
+        "in_TestesNomeDoQA",
+        "in_TestesDataTermino",
+        "in_TestesDataLiberacao",
+        "in_TestesDataInicio",
+        "in_TestesCapturaDeTela",
+        "in_SolictDataCriacao",
+        "in_SolicGerencia",
+        "in_SolicCriadoPor",
+        "in_SolicCapturaDeTela",
+        "in_ProdVersao",
+        "in_ProdNomeResponsavel",
+        "in_ProdGerencia",
+        "in_ProdDataEmProducao",
+        "in_ProdCapturaDeTela",
+        "in_HomologNomeDoHomologador",
+        "in_HomologGerencia",
+        "in_HomologDataHomologado",
+        "in_HomologDataDeAceitacao",
+        "in_HomologCapturaDeTela",
+        "in_HomologAceitoPor",
+        "in_DesenvNomeDoDesenvolvedor",
+        "in_DesenvGerencia",
+        "in_DesenvDataTermino",
+        "in_DesenvDataLiberadoParaTestes",
+        "in_DesenvDataInicio",
+        "in_DesenvCapturaDeTela"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "AplicativoAuditorInserirImagem.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_NomeDaImagemPNG",
+        "in_NomeDaPastaDaDemanda",
+        "in_CaminhoPrincipal"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    }
+  ]
+}

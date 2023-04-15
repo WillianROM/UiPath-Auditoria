@@ -1,0 +1,398 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="AplicativoAuditor" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_DesenvCapturaDeTela" Type="InArgument(ui:Image)" />
+    <x:Property Name="in_DesenvDataInicio" Type="InArgument(x:String)" />
+    <x:Property Name="in_DesenvDataLiberadoParaTestes" Type="InArgument(x:String)" />
+    <x:Property Name="in_DesenvDataTermino" Type="InArgument(x:String)" />
+    <x:Property Name="in_DesenvGerencia" Type="InArgument(x:String)" />
+    <x:Property Name="in_DesenvNomeDoDesenvolvedor" Type="InArgument(x:String)" />
+    <x:Property Name="in_HomologAceitoPor" Type="InArgument(x:String)" />
+    <x:Property Name="in_HomologCapturaDeTela" Type="InArgument(ui:Image)" />
+    <x:Property Name="in_HomologDataDeAceitacao" Type="InArgument(x:String)" />
+    <x:Property Name="in_HomologDataHomologado" Type="InArgument(x:String)" />
+    <x:Property Name="in_HomologGerencia" Type="InArgument(x:String)" />
+    <x:Property Name="in_HomologNomeDoHomologador" Type="InArgument(x:String)" />
+    <x:Property Name="in_ProdCapturaDeTela" Type="InArgument(ui:Image)" />
+    <x:Property Name="in_ProdDataEmProducao" Type="InArgument(x:String)" />
+    <x:Property Name="in_ProdGerencia" Type="InArgument(x:String)" />
+    <x:Property Name="in_ProdNomeResponsavel" Type="InArgument(x:String)" />
+    <x:Property Name="in_ProdVersao" Type="InArgument(x:String)" />
+    <x:Property Name="in_SolicCapturaDeTela" Type="InArgument(ui:Image)" />
+    <x:Property Name="in_SolicCriadoPor" Type="InArgument(x:String)" />
+    <x:Property Name="in_SolicGerencia" Type="InArgument(x:String)" />
+    <x:Property Name="in_SolictDataCriacao" Type="InArgument(x:String)" />
+    <x:Property Name="in_TestesCapturaDeTela" Type="InArgument(ui:Image)" />
+    <x:Property Name="in_TestesDataInicio" Type="InArgument(x:String)" />
+    <x:Property Name="in_TestesDataLiberacao" Type="InArgument(x:String)" />
+    <x:Property Name="in_TestesDataTermino" Type="InArgument(x:String)" />
+    <x:Property Name="in_TestesNomeDoQA" Type="InArgument(x:String)" />
+    <x:Property Name="in_TestesNomeGerencia" Type="InArgument(x:String)" />
+    <x:Property Name="inOut_CaminhoPrincipal" Type="InOutArgument(x:String)" />
+    <x:Property Name="inOut_imgTelaSolicitante" Type="InOutArgument(x:String)" />
+    <x:Property Name="inOut_imgTelaDesenvolvimento" Type="InOutArgument(x:String)" />
+    <x:Property Name="inOut_imgTelaTestes" Type="InOutArgument(x:String)" />
+    <x:Property Name="inOut_imgTelaHomologacao" Type="InOutArgument(x:String)" />
+    <x:Property Name="inOut_imgTelaProducao" Type="InOutArgument(x:String)" />
+    <x:Property Name="inOut_numeroDemanda" Type="InOutArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>598,3437</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>AplicativoAuditor_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="AplicativoAuditor" sap:VirtualizedContainerService.HintSize="608,3372" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:OpenApplication ApplicationWindow="{x:Null}" Arguments="{x:Null}" TimeoutMS="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Open Application 'auditor.exe Auditor'" FileName="C:\UiPath\Auditoria\Auditor\auditor.exe" sap:VirtualizedContainerService.HintSize="546,3261" sap2010:WorkflowViewState.IdRef="OpenApplication_1" InformativeScreenshot="4ac4b0f78604e942bf3285021498c1ac" Selector="&lt;wnd app='auditor.exe' ctrlname='TelaPrincipal' /&gt;">
+      <ui:OpenApplication.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Fazer" sap:VirtualizedContainerService.HintSize="512,3114" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Sequence DisplayName="Sequence - Numero da Demanda" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into 'WindowsForms10.RichEdit...'" sap:VirtualizedContainerService.HintSize="388,135" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[&quot;Evidências da Demada: &quot; + inOut_numeroDemanda + vbNewLine + vbNewLine]">
+                <ui:TypeInto.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2b3387f0-edb6-49e9-8a5e-686b1be2d0f8" InformativeScreenshot="1ef0c3a99b85e1785af18bd591f97a7d" Selector="&lt;wnd ctrlname='txtEvidencias' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:TypeInto.Target>
+              </ui:TypeInto>
+            </Sequence>
+            <Sequence DisplayName="Sequence - Dados SOLICITANTE" sap:VirtualizedContainerService.HintSize="450,399" sap2010:WorkflowViewState.IdRef="Sequence_4">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into 'WindowsForms10.RichEdit...'" sap:VirtualizedContainerService.HintSize="388,135" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="[&quot;SOLICITANTE&quot; + vbNewLine + &#xD;&#xA;&quot;Nome do Solicitante: &quot; + in_SolicCriadoPor + vbNewLine +&#xD;&#xA;&quot;Gerencia do Solicitante: &quot; + in_SolicGerencia +  vbNewLine +&#xD;&#xA;&quot;Data de criação da Demanda: &quot; + in_SolictDataCriacao + vbNewLine +&#xD;&#xA;&quot;Imagem: &quot; +vbNewLine + vbNewLine]">
+                <ui:TypeInto.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2b3387f0-edb6-49e9-8a5e-686b1be2d0f8" InformativeScreenshot="1ef0c3a99b85e1785af18bd591f97a7d" Selector="&lt;wnd ctrlname='txtEvidencias' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:TypeInto.Target>
+              </ui:TypeInto>
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="AplicativoAuditorInserirImagem.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="AplicativoAuditorInserirImagem.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_CaminhoPrincipal">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="inOut_CaminhoPrincipal" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_NomeDaPastaDaDemanda">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="inOut_numeroDemanda" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_NomeDaImagemPNG">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="inOut_imgTelaSolicitante" />
+                  </InArgument>
+                </ui:InvokeWorkflowFile.Arguments>
+              </ui:InvokeWorkflowFile>
+            </Sequence>
+            <Sequence DisplayName="Sequence - Dados DESENVOLVIMENTO" sap:VirtualizedContainerService.HintSize="450,399" sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into 'WindowsForms10.RichEdit...'" sap:VirtualizedContainerService.HintSize="388,135" sap2010:WorkflowViewState.IdRef="TypeInto_3" Text="[&quot;DESENVOLVIMENTO&quot; + vbNewLine +&#xD;&#xA;&quot;Nome do Desenvolvedor: &quot;  + in_DesenvNomeDoDesenvolvedor + vbNewLine +&#xD;&#xA;&quot;Gerencia do Desenvolvedor: &quot; + in_DesenvGerencia +  vbNewLine +&#xD;&#xA;&quot;Data de Inicio do desenvolvimento: : &quot; + in_DesenvDataInicio + vbNewLine +&#xD;&#xA;&quot;Data do término do desenvolvimento: : &quot; + in_DesenvDataTermino +  vbNewLine +&#xD;&#xA;&quot;Data da liberação para testes : &quot; + in_DesenvDataLiberadoParaTestes + vbNewLine +&#xD;&#xA;&quot;Imagem: &quot; +vbNewLine + vbNewLine]">
+                <ui:TypeInto.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2b3387f0-edb6-49e9-8a5e-686b1be2d0f8" InformativeScreenshot="1ef0c3a99b85e1785af18bd591f97a7d" Selector="&lt;wnd ctrlname='txtEvidencias' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:TypeInto.Target>
+              </ui:TypeInto>
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="AplicativoAuditorInserirImagem.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="AplicativoAuditorInserirImagem.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_CaminhoPrincipal">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="inOut_CaminhoPrincipal" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_NomeDaPastaDaDemanda">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="inOut_numeroDemanda" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_NomeDaImagemPNG">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="inOut_imgTelaDesenvolvimento" />
+                  </InArgument>
+                </ui:InvokeWorkflowFile.Arguments>
+              </ui:InvokeWorkflowFile>
+            </Sequence>
+            <Sequence DisplayName="Sequence - Dados TESTES" sap:VirtualizedContainerService.HintSize="450,399" sap2010:WorkflowViewState.IdRef="Sequence_6">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into 'WindowsForms10.RichEdit...'" sap:VirtualizedContainerService.HintSize="388,135" sap2010:WorkflowViewState.IdRef="TypeInto_4" Text="[&quot;TESTES&quot; + vbNewLine +&#xD;&#xA;&quot;Nome do Testador: &quot;  + in_TestesNomeDoQA + vbNewLine +&#xD;&#xA;&quot;Gerencia do Testador: &quot; + in_TestesNomeGerencia + vbNewLine +&#xD;&#xA;&quot;Data de Inicio dos testes: : &quot; + in_TestesDataInicio + vbNewLine +&#xD;&#xA;&quot;Data do término dos testes: : &quot; + in_TestesDataTermino + vbNewLine +&#xD;&#xA;&quot;Data da liberação para homologação : &quot; + in_TestesDataLiberacao +  vbNewLine +&#xD;&#xA;&quot;Imagem: &quot; +vbNewLine + vbNewLine]">
+                <ui:TypeInto.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2b3387f0-edb6-49e9-8a5e-686b1be2d0f8" InformativeScreenshot="1ef0c3a99b85e1785af18bd591f97a7d" Selector="&lt;wnd ctrlname='txtEvidencias' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:TypeInto.Target>
+              </ui:TypeInto>
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="AplicativoAuditorInserirImagem.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="AplicativoAuditorInserirImagem.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_CaminhoPrincipal">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="inOut_CaminhoPrincipal" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_NomeDaPastaDaDemanda">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="inOut_numeroDemanda" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_NomeDaImagemPNG">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="inOut_imgTelaTestes" />
+                  </InArgument>
+                </ui:InvokeWorkflowFile.Arguments>
+              </ui:InvokeWorkflowFile>
+            </Sequence>
+            <Sequence DisplayName="Sequence - Dados ACEITAÇÃO" sap:VirtualizedContainerService.HintSize="450,399" sap2010:WorkflowViewState.IdRef="Sequence_7">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into 'WindowsForms10.RichEdit...'" sap:VirtualizedContainerService.HintSize="388,135" sap2010:WorkflowViewState.IdRef="TypeInto_5" Text="[&quot;HOMOLOGAÇÃO/ACEITAÇÃO&quot; + vbNewLine +&#xD;&#xA;&quot;Nome do Homologador: &quot;  + in_HomologNomeDoHomologador +  vbNewLine +&#xD;&#xA;&quot;Gerencia do Homologador: &quot; + in_HomologGerencia + vbNewLine +&#xD;&#xA;&quot;Data da Homologação: &quot; + in_HomologDataHomologado + vbNewLine + &#xD;&#xA;&quot;Aceito por : &quot; + in_HomologAceitoPor +  vbNewLine +&#xD;&#xA;&quot;Data da Aceitação : &quot;  + in_HomologDataDeAceitacao + vbNewLine +&#xD;&#xA;&quot;Imagem: &quot; +vbNewLine + vbNewLine]">
+                <ui:TypeInto.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2b3387f0-edb6-49e9-8a5e-686b1be2d0f8" InformativeScreenshot="1ef0c3a99b85e1785af18bd591f97a7d" Selector="&lt;wnd ctrlname='txtEvidencias' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:TypeInto.Target>
+              </ui:TypeInto>
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="AplicativoAuditorInserirImagem.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="AplicativoAuditorInserirImagem.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_CaminhoPrincipal">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="inOut_CaminhoPrincipal" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_NomeDaPastaDaDemanda">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="inOut_numeroDemanda" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_NomeDaImagemPNG">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="inOut_imgTelaHomologacao" />
+                  </InArgument>
+                </ui:InvokeWorkflowFile.Arguments>
+              </ui:InvokeWorkflowFile>
+            </Sequence>
+            <Sequence DisplayName="Sequence - Dados PRODUÇÃO" sap:VirtualizedContainerService.HintSize="450,399" sap2010:WorkflowViewState.IdRef="Sequence_8">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into 'WindowsForms10.RichEdit...'" sap:VirtualizedContainerService.HintSize="388,135" sap2010:WorkflowViewState.IdRef="TypeInto_6" Text="[&quot;PRODUÇÃO&quot; + vbNewLine +&#xD;&#xA;&quot;Versão promovida: &quot; + in_ProdVersao + vbNewLine +&#xD;&#xA;&quot;Nome do profissional: &quot; + in_ProdNomeResponsavel +  vbNewLine +&#xD;&#xA;&quot;Gerencia do profissional: &quot; + in_ProdGerencia +  vbNewLine +&#xD;&#xA;&quot;Data de Promoção: &quot; + in_ProdDataEmProducao + vbNewLine +&#xD;&#xA;&quot;Imagem: &quot; +vbNewLine + vbNewLine]">
+                <ui:TypeInto.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2b3387f0-edb6-49e9-8a5e-686b1be2d0f8" InformativeScreenshot="1ef0c3a99b85e1785af18bd591f97a7d" Selector="&lt;wnd ctrlname='txtEvidencias' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:TypeInto.Target>
+              </ui:TypeInto>
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="AplicativoAuditorInserirImagem.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="AplicativoAuditorInserirImagem.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_CaminhoPrincipal">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="inOut_CaminhoPrincipal" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_NomeDaPastaDaDemanda">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="inOut_numeroDemanda" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_NomeDaImagemPNG">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="inOut_imgTelaProducao" />
+                  </InArgument>
+                </ui:InvokeWorkflowFile.Arguments>
+              </ui:InvokeWorkflowFile>
+            </Sequence>
+            <Sequence DisplayName="Sequence - Salvar Documento" sap:VirtualizedContainerService.HintSize="450,540" sap2010:WorkflowViewState.IdRef="Sequence_9">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Clique em Salvar do programa Auditor" sap:VirtualizedContainerService.HintSize="388,107" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+                <ui:Click.CursorPosition>
+                  <ui:CursorPosition Position="Center">
+                    <ui:CursorPosition.OffsetX>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:CursorPosition.OffsetX>
+                    <ui:CursorPosition.OffsetY>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:CursorPosition.OffsetY>
+                  </ui:CursorPosition>
+                </ui:Click.CursorPosition>
+                <ui:Click.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="60874ad9-d043-43f3-b794-6bb445192e2d" InformativeScreenshot="b100c6324641109ed3f8cc7ea1488762" Selector="&lt;wnd ctrlname='btnGravar' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:Click.Target>
+              </ui:Click>
+              <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Informe o caminho e o nome do arquivo para salvar" sap:VirtualizedContainerService.HintSize="388,135" sap2010:WorkflowViewState.IdRef="TypeInto_7" Text="[inOut_CaminhoPrincipal + inOut_numeroDemanda + &quot;\&quot; + inOut_numeroDemanda]">
+                <ui:TypeInto.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ed68d2e9-75dd-473f-bf1f-ca445f22fc22" InformativeScreenshot="03a7deafbc3e651a8a12b599f1fa7425" Selector="&lt;wnd app='auditor.exe' cls='#32770' title='Salvar como' /&gt;&lt;wnd aaname='Painel do Explorer' cls='DirectUIHWND' /&gt;&lt;wnd aaname='Nome:' cls='ComboBox' /&gt;&lt;wnd ctrlid='1001' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:TypeInto.Target>
+              </ui:TypeInto>
+              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Clique no botão Salvar" sap:VirtualizedContainerService.HintSize="388,107" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+                <ui:Click.CursorPosition>
+                  <ui:CursorPosition Position="Center">
+                    <ui:CursorPosition.OffsetX>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:CursorPosition.OffsetX>
+                    <ui:CursorPosition.OffsetY>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:CursorPosition.OffsetY>
+                  </ui:CursorPosition>
+                </ui:Click.CursorPosition>
+                <ui:Click.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="321092fd-9436-42d0-a3ac-49e4df0c34b5" InformativeScreenshot="7857d40e83af9488a19d71d8c5fe528a" Selector="&lt;wnd app='auditor.exe' cls='#32770' title='Salvar como' /&gt;&lt;wnd ctrlid='1' title='Sa&amp;amp;lvar' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:Click.Target>
+              </ui:Click>
+            </Sequence>
+            <ui:CloseApplication DisplayName="Close Application 'auditor.exe Auditor'" sap:VirtualizedContainerService.HintSize="450,107" sap2010:WorkflowViewState.IdRef="CloseApplication_1">
+              <ui:CloseApplication.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="dfd3370e-55bd-44e1-8932-c080b0595bf4" InformativeScreenshot="56c9c62e7b5d574c5594583b0a865db0">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:CloseApplication.Target>
+            </ui:CloseApplication>
+          </Sequence>
+        </ActivityAction>
+      </ui:OpenApplication.Body>
+    </ui:OpenApplication>
+  </Sequence>
+</Activity>
